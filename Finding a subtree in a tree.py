@@ -6,47 +6,47 @@ class Node:
         self.right = None
 
 
-def areIdentical(root1, root2):
-    # Base Case
-    if root1 is None and root2 is None:
+def Identical(a, b):
+
+    if a is None and b is None:
         return True
-    if root1 is None or root2 is None:
+    if a is None or b is None:
         return False
 
-    return (root1.data == root2.data and
-            areIdentical(root1.left, root2.left) and
-            areIdentical(root1.right, root2.right)
+    return (a.data == b.data and
+            Identical(a.left, b.left) and
+            Identical(a.right, b.right)
             )
 
 
-def isSubtree(T, S):
-    # Base Case
-    if S is None:
+def Subtree(x, y):
+
+    if y is None:
         return True
 
-    if T is None:
+    if x is None:
         return False
 
-    if areIdentical(T, S):
+    if Identical(x, y):
         return True
 
-    return isSubtree(T.left, S) or isSubtree(T.right, S)
+    return Subtree(x.left, y) or Subtree(x.right, y)
 
 
-T = Node(26)
-T.right = Node(3)
-T.right.right = Node(3)
-T.left = Node(10)
-T.left.left = Node(4)
-T.left.left.right = Node(30)
-T.left.right = Node(6)
+x = Node(7)
+x.right = Node(6)
+x.right.right = Node(5)
+x.left = Node(4)
+x.left.left = Node(2)
+x.left.left.right = Node(1)
+x.left.right = Node(3)
 
-S = Node(10)
-S.right = Node(6)
-S.left = Node(4)
-S.left.right = Node(30)
+y = Node(4)
+y.right = Node(3)
+y.left = Node(2)
+y.left.right = Node(1)
 
-if isSubtree(T, S):
+if Subtree(x, y):
     print("Tree 2 is subtree of Tree 1")
 else:
     print("Tree 2 is not a subtree of Tree 1")
