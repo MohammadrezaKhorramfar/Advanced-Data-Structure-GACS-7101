@@ -27,3 +27,4 @@ first we need to have the time of the traversal of the node so we have a global 
 Then we check for the color of the vertices(v) and check their type base on the pseudocode
 d[u] is the dicovery time and f[u] is the finishing time
 In the line 26, we add the u and v by one because in python they start from 0 and we add them by 1 to show them like it was shown in the assignment pdf
+(This is done by Mohammadreza Khorramfar)
